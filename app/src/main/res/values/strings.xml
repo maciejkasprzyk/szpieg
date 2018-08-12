@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Szpieg</string>
+
+    <!--mainActivity buttons labels-->
+    <string name="play_button_label">Graj</string>
+    <string name="settings_button_label">Ustawienia</string>
+    <string name="help_button_label">Jak grać?</string>
+    <string name="places_button_label">Miejsca</string>
+
 </resources>
