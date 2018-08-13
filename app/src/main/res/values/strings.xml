@@ -7,4 +7,9 @@
     <string name="help_button_label">Jak grać?</string>
     <string name="places_button_label">Miejsca</string>
 
+
+    <!--preferences string resources-->
+    <string name="pref_number_key" translatable="false">number</string>
+    <string name="pref_number_title">Liczba graczy</string>
+    <string name="pref_number_default">3</string>
 </resources>
