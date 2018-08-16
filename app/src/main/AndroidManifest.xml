@@ -17,9 +17,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameActivity" />
-        <activity android:name=".SettingsActivity"
-            android:parentActivityName=".MainActivity"
-            ></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PlacesActivity"
+            android:label="@string/title_activity_places"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".NewWordActivity"></activity>
     </application>
 
 </manifest>

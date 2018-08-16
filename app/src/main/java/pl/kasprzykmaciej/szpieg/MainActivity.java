@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        mPlacesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this , PlacesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initViewByIDs() {

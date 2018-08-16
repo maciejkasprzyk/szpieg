@@ -6,15 +6,14 @@
     android:orientation="vertical"
     android:padding="24dp">
 
-    <TextView
-        android:id="@+id/display_place_tv"
+    <EditText
+        android:id="@+id/edit_word"
+        style="@style/text_view_style"
         android:hint="@string/hint_word"
-        android:textSize="18pt"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content" />
+        android:inputType="textAutoComplete" />
 
     <Button
-        android:id="@+id/button_next"
+        android:id="@+id/button_save"
         style="@style/button_style"
-        android:text="@string/game_next_button" />
+        android:text="@string/button_save" />
 </LinearLayout>
