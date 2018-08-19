@@ -1,19 +1,19 @@
 package pl.kasprzykmaciej.szpieg;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.List;
 import java.util.Random;
+
+import pl.kasprzykmaciej.szpieg.database.Word;
+import pl.kasprzykmaciej.szpieg.database.WordViewModel;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -78,12 +78,13 @@ public class GameActivity extends AppCompatActivity {
     private void updateView() {
         if (gameState == GAME_STATE_PLACE) {
             if (currentPlayer == szpiegIndex) {
-                mPlaceTV.setText("Jesteś szpiegiem.");
+                mPlaceTV.setText(R.string.game_spy_message);
             } else {
                 mPlaceTV.setText(currentLocation);
             }
         } else {
-            mPlaceTV.setText("Gracz numer " + currentPlayer + ".");
+            String s = getString(R.string.game_pre_player_number_message) + currentPlayer + ".";
+            mPlaceTV.setText(s);
         }
     }
 }

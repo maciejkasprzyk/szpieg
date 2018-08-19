@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Szpieg</string>
+    <string name="app_name">Jesteś szpiegiem! Gra imprezowa.</string>
 
     <!--mainActivity buttons labels-->
     <string name="play_button_label">Graj</string>
@@ -15,9 +15,13 @@
     <string name="title_activity_places">PlacesActivity</string>
 
     <!--add new word activity strings-->
-    <string name="hint_word">Dodaj miejsce...</string>
+    <string name="hint_word">Dodaj miejsce…</string>
     <string name="button_save">Zapisz</string>
     <string name="empty_not_saved">Miejsce nie może być puste.</string>
     <string name="game_next_button">Dalej</string>
+    <string name="action_share">Udostępnij</string>
+    <string name="viewholder_word_not_yet_loaded">No Word</string>
+    <string name="game_spy_message">Jesteś szpiegiem.</string>
+    <string name="game_pre_player_number_message">Gracz numer</string>
 
 </resources>

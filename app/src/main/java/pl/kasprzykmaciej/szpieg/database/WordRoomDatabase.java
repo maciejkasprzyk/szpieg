@@ -1,4 +1,4 @@
-package pl.kasprzykmaciej.szpieg;
+package pl.kasprzykmaciej.szpieg.database;
 
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
@@ -45,11 +45,11 @@ public abstract class WordRoomDatabase extends RoomDatabase {
     // This callback is called when the database has opened.
     // In this case, use PopulateDbAsync to populate the database
     // with the initial data set if the database has no entries.
-    private static RoomDatabase.Callback sRoomDatabaseCallback =
-            new RoomDatabase.Callback(){
+    private static final RoomDatabase.Callback sRoomDatabaseCallback =
+            new RoomDatabase.Callback() {
 
                 @Override
-                public void onOpen (@NonNull SupportSQLiteDatabase db){
+                public void onOpen(@NonNull SupportSQLiteDatabase db) {
                     super.onOpen(db);
                     new PopulateDbAsync(INSTANCE).execute();
                 }
@@ -62,7 +62,8 @@ public abstract class WordRoomDatabase extends RoomDatabase {
         private final WordDao mDao;
 
         // Initial data set
-        private static String [] words = {"dom starcow", "zoo",
+        @SuppressWarnings("SpellCheckingInspection")
+        private static final String[] words = {"dom starcow", "zoo",
                 "biurowiec", "stacja paliw",
                 "w wiezieniu", "kopalnia",
                 "winiarnia", "kosmos",

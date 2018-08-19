@@ -8,10 +8,10 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button mPlayButton;
-    Button mSettingsButton;
-    Button mHelpButton;
-    Button mPlacesButton;
+    private Button mPlayButton;
+    private Button mSettingsButton;
+    private Button mHelpButton;
+    private Button mPlacesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

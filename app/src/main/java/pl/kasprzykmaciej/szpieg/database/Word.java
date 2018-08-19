@@ -1,4 +1,4 @@
-package pl.kasprzykmaciej.szpieg;
+package pl.kasprzykmaciej.szpieg.database;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -15,10 +15,14 @@ public class Word {
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "word")
-    private String mWord;
+    private final String mWord;
 
-    public Word(@NonNull String word) {this.mWord = word;}
+    public Word(@NonNull String word) {
+        this.mWord = word;
+    }
 
-    public String getWord(){return this.mWord;}
+    public String getWord() {
+        return this.mWord;
+    }
 }
 

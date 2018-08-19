@@ -1,9 +1,8 @@
-package pl.kasprzykmaciej.szpieg;
+package pl.kasprzykmaciej.szpieg.database;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
-
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  * Using a repository allows us to group the implementation
  * methods together, and allows the WordViewModel to be
  * a clean interface between the rest of the app and the database.
- *
+ * <p>
  * For insert, update and delete, and longer-running queries,
  * you must run the database interaction methods in the background.
  * Typically, all you need to do to implement a database method
@@ -21,11 +20,11 @@ import java.util.List;
  * in the background if applicable.
  */
 
-public class WordRepository {
+class WordRepository {
 
-    private WordDao mWordDao;
-    private LiveData<List<Word>> mAllWords;
-    private List<Word> mAllWordsRaw;
+    private final WordDao mWordDao;
+    private final LiveData<List<Word>> mAllWords;
+    private final List<Word> mAllWordsRaw;
 
     WordRepository(Application application) {
         WordRoomDatabase db = WordRoomDatabase.getDatabase(application);
@@ -38,14 +37,12 @@ public class WordRepository {
         return mAllWords;
     }
 
-    List<Word> getAllWordsRaw() { return mAllWordsRaw;}
+    List<Word> getAllWordsRaw() {
+        return mAllWordsRaw;
+    }
 
     public void insert(Word word) {
         new insertAsyncTask(mWordDao).execute(word);
-    }
-
-    public void deleteAll() {
-        new deleteAllWordsAsyncTask(mWordDao).execute();
     }
 
     // Need to run off main thread
@@ -61,7 +58,7 @@ public class WordRepository {
      */
     private static class insertAsyncTask extends AsyncTask<Word, Void, Void> {
 
-        private WordDao mAsyncTaskDao;
+        private final WordDao mAsyncTaskDao;
 
         insertAsyncTask(WordDao dao) {
             mAsyncTaskDao = dao;
@@ -74,28 +71,12 @@ public class WordRepository {
         }
     }
 
-    /**
-     * Delete all words from the database (does not delete the table)
-     */
-    private static class deleteAllWordsAsyncTask extends AsyncTask<Void, Void, Void> {
-        private WordDao mAsyncTaskDao;
-
-        deleteAllWordsAsyncTask(WordDao dao) {
-            mAsyncTaskDao = dao;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            mAsyncTaskDao.deleteAll();
-            return null;
-        }
-    }
 
     /**
-     *  Delete a single word from the database.
+     * Delete a single word from the database.
      */
     private static class deleteWordAsyncTask extends AsyncTask<Word, Void, Void> {
-        private WordDao mAsyncTaskDao;
+        private final WordDao mAsyncTaskDao;
 
         deleteWordAsyncTask(WordDao dao) {
             mAsyncTaskDao = dao;

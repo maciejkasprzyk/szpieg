@@ -41,4 +41,10 @@
         <item name="android:layout_marginTop">16dp</item>
         <item name="android:textColor">@color/colorTextPrimary</item>
     </style>
+
+    <style name="buttons_main_activity">
+        <item name="android:layout_width">70pt</item>
+        <item name="android:layout_height">70pt</item>
+        <item name="android:layout_margin">5pt</item>
+    </style>
 </resources>

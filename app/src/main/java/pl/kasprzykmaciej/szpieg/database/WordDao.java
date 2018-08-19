@@ -1,4 +1,4 @@
-package pl.kasprzykmaciej.szpieg;
+package pl.kasprzykmaciej.szpieg.database;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -20,9 +20,6 @@ public interface WordDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Word word);
-
-    @Query("DELETE FROM word_table")
-    void deleteAll();
 
     @Delete
     void deleteWord(Word word);

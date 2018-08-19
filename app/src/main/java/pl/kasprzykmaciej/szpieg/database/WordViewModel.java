@@ -1,9 +1,8 @@
-package pl.kasprzykmaciej.szpieg;
+package pl.kasprzykmaciej.szpieg.database;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
-
 
 import java.util.List;
 
@@ -14,12 +13,11 @@ import java.util.List;
 
 public class WordViewModel extends AndroidViewModel {
 
-    private WordRepository mRepository;
+    private final WordRepository mRepository;
 
-    private LiveData<List<Word>> mAllWords;
+    private final LiveData<List<Word>> mAllWords;
 
-    private List<Word> mAllWordsRaw;
-
+    private final List<Word> mAllWordsRaw;
 
 
     public WordViewModel(Application application) {
@@ -29,20 +27,16 @@ public class WordViewModel extends AndroidViewModel {
         mAllWordsRaw = mRepository.getAllWordsRaw();
     }
 
-    LiveData<List<Word>> getAllWords() {
+    public LiveData<List<Word>> getAllWords() {
         return mAllWords;
     }
 
-    List<Word> getAllWordsRaw() {
+    public List<Word> getAllWordsRaw() {
         return mAllWordsRaw;
     }
 
     public void insert(Word word) {
         mRepository.insert(word);
-    }
-
-    public void deleteAll() {
-        mRepository.deleteAll();
     }
 
     public void deleteWord(Word word) {
